@@ -1,0 +1,39 @@
+pip install matplotlib
+pip install seaborn
+  pip install scikit-learn
+
+import numpy as np
+import pandas as pd
+import os
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+#from sklearn.model_selection import train_test_split
+
+from sklearn.naive_bayes import MultinomialNB
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.metrics import accuracy_score, classification_report, confusion_matrix
+
+  df=pd.read_csv(r"D:\email spam detection\dataset\emails.csv")
+print(df)
+
+  df.columns
+  df.head()
+  df.describe()
+
+  def count_spam(predictions):
+    spam_count = 0
+    not_spam_count = 0
+    
+    for prediction in predictions:
+        if prediction == 0:
+            not_spam_count += 1
+        elif prediction == 1:
+            spam_count += 1
+    
+    return not_spam_count, spam_count
+
+# Assuming your DataFrame has a column named 'predictions' which contains the prediction values
+not_spam, spam = count_spam(df['predictions'])
+print("Not Spam:", not_spam)
+print("Spam:", spam)
