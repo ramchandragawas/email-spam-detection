@@ -1,0 +1,28 @@
+import * from training
+
+# Assigning the value "Email 1" to a variable
+email_title = "Email 1"
+
+# Search for the email title in the DataFrame
+found_emails = df[df['Email No.'] == email_title]
+
+# Check if any emails matching the title are found
+if not found_emails.empty:
+    print("Email title '{}' found in the dataset.".format(email_title))
+
+    # Making a prediction for the email title
+    prediction = test_email(email_title)
+    print("Prediction:", prediction)
+else:
+    print("Email title '{}' not found in the dataset.".format(email_title))
+
+
+    # Making a prediction for the email title
+    prediction = test_email(email_title)
+    print("Prediction:", prediction)
+
+    # Checking if the email is predicted to be spam or not
+    if prediction == 1:
+        print("Email is spam")
+    else :
+        print("Email is not spam")
